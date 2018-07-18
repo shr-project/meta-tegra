@@ -1,3 +1,5 @@
+CUDA_VERSION ?= "8.0"
+
 CUDA_COMMON_LD_FLAGS = " \
   -Wl,-rpath-link,${STAGING_DIR_TARGET}/usr/local/cuda-${CUDA_VERSION}/lib \
   -Wl,-rpath,/usr/local/cuda-${CUDA_VERSION}/lib \
