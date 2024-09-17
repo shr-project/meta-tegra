@@ -24,3 +24,8 @@ TEGRA_PLUGINS:tegra = "tegra-libraries-multimedia-v4l"
 RRECOMMENDS:libv4l += "${TEGRA_PLUGINS}"
 
 PACKAGE_ARCH:tegra = "${TEGRA_PKGARCH}"
+
+# Caused by 0002-Replace-stat-fstat-calls-with-__xstat-__fxstat.patch
+# git/lib/libv4lconvert/control/libv4lcontrol.c:376:13: error: implicit declaration of function '__fxstat'; did you mean 'fstat'? [-Wimplicit-function-declaration]
+# git/lib/libv4lconvert/control/libv4lcontrol.c:373:13: error: implicit declaration of function '__xstat'; did you mean 'lstat'? [-Wimplicit-function-declaration]
+CFLAGS += "-Wno-error=implicit-function-declaration"
